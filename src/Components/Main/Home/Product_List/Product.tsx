@@ -1,5 +1,5 @@
 import React from 'react';
-import { IShoppingProduct } from '../../../interface';
+import { IShoppingProduct } from '../../../../interface';
 import './product.css'
 
 interface ProductDataProps{

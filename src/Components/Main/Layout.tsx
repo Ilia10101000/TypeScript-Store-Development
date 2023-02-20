@@ -6,9 +6,9 @@ import { Header } from "../Header/Header";
 export default function Layout(){
 
     return (
-        <div>
+        <div className="layout-container">
             <Header/>
-            <main>
+            <main className="main-container">
                 <Outlet/>
             </main>
             <Footer/>

@@ -10,7 +10,7 @@ function handlerFetchResponse (arr : IProduct[]): IShoppingProduct[]{
 }
 const url = 'https://fakestoreapi.com/products';
 
-export const ProductListData = React.createContext<IShoppingProduct[] | []>([]);
+export const ProductListData = React.createContext<IShoppingProduct[]>([]);
 
 export const ProductContext = ({children}:ContextProps) => {
 
@@ -22,14 +22,15 @@ export const ProductContext = ({children}:ContextProps) => {
             return;
         } 
         fetch(url).then(data => data.json()).then(response => {
-            localStorage.setItem('StoreDataValue', JSON.stringify(handlerFetchResponse(response)));
             setData(response)
-        }).catch( err => console.log(err.message))
+            return response
+            
+        }).then(response => localStorage.setItem('StoreDataValue', JSON.stringify(handlerFetchResponse(response)))).catch( err => console.log(err.message))
     },[])
 
 
     React.useEffect(() => {
-        fetchStoreData()
+        fetchStoreData();
     },[])
 
     return (

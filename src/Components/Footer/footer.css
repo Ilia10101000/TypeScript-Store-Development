@@ -1,0 +1,12 @@
+.footer-container{
+    display: flex;
+    padding: 20px;
+    background-color: #f7d96e;
+    justify-content: center;
+}
+.footer-container ul{
+    width: 40%;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
