@@ -9,4 +9,8 @@ export interface IProduct {
         rate: number,
         count: number
     }
+};
+
+export interface IShoppingProduct extends IProduct{
+    count: number
 }

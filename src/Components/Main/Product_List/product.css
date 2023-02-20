@@ -1,0 +1,27 @@
+.product-item-container{
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.productItem{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center; 
+    width: 50%;
+    margin: 0 auto;
+}
+.productItem img{
+    width: 150px;
+}
+.product-price-container{
+  display: flex;
+  justify-content: center;
+  /* border: 1px solid red; */
+}
+.product-price{
+  display: flex;
+  width: 300px;
+  justify-content: space-between;
+}

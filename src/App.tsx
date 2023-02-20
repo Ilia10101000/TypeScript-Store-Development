@@ -1,23 +1,26 @@
 import React, {useContext} from 'react';
-import Product from './Components/Product';
-import { IProduct } from './interface';
-// import {ProductContext, ProductList} from './Hook/useProductContext';
+import { ProductContext, ProductListData} from './Hook/ProductContext';
+import {Routes, Route} from 'react-router-dom'
+import Layout from './Components/Main/Layout';
+import Home from './Components/Main/Home/Home';
+import About from './Components/Main/About/About';
+import Reviews from './Components/Main/Reviews/Reviews';
+import ShoppingBasket from './Components/Main/ShoppingBasket/ShoppingBasket';
 
-const url:string = 'https://fakestoreapi.com/products';
-
-function App() {
-  const [data, setData] = React.useState([])
-
-  React.useEffect(() => {
-    fetch(url).then(data => data.json()).then(response => setData(response))
-  },[])
+export const App:React.FC = () => {
 
   return (
-    <div>
-  {
-    data.map( (item:IProduct) => <Product product={item}/>)
-  }
-  </div>
+    <ProductContext>
+      <Routes>
+        <Route path='/' element={<Layout/>}>
+          <Route index element={<Home/>}></Route>
+          <Route path='about' element={<About/>}></Route>
+          <Route path='basket' element={<ShoppingBasket/>}></Route>
+          <Route path='reviews' element={<Reviews/>}></Route>
+          <Route path='*' element={<Reviews/>}></Route>
+        </Route>
+      </Routes>
+    </ProductContext>
     
   )
 }
