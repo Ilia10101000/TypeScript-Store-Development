@@ -5,40 +5,37 @@ import { ProductListData } from '../../../Hook/ProductContext';
 import { IShoppingProduct } from "../../../interface";
 
 const category = {
-    'одяг для чоловіків':`men's clothing`,
-    'прикраси':`jewelery`,
-    'електроніка':`electronics`,
-    'одяг для жінок':`women's clothing`
+    'Одяг для чоловіків':`men's clothing`,
+    'Прикраси':`jewelery`,
+    'Електроніка':`electronics`,
+    'Одяг для жінок':`women's clothing`
 }
 
 type CategoryType = Array<string> 
 
 export default function Home(){
 
-    const data = React.useContext(ProductListData);
+    const {data} = React.useContext(ProductListData);
     
     const [displayedProductList, setDisplayedProductList] = React.useState<IShoppingProduct[]>([])
     const [typeofCategory, setTypeofCategory] = React.useState<CategoryType>([])
     
-    React.useEffect(()=>{ setDisplayedProductList(data) },[data])
-    React.useEffect(() => { updateDisplayedProductList(typeofCategory); console.log(typeofCategory) },[typeofCategory])
-
+    React.useEffect(()=>{ setDisplayedProductList(data) },[data]);
+    React.useEffect(() => { updateDisplayedProductList(typeofCategory)},[typeofCategory]);
+    
     function updateDisplayedProductList(updatedArrayOfCategory:string[]){
         if(!updatedArrayOfCategory.length){
             setDisplayedProductList(data) 
             return
         }
-        setDisplayedProductList(displayedProductList.filter( product => updatedArrayOfCategory.includes(product.category))) 
-        console.log(data)
+        setDisplayedProductList(data.filter( product => updatedArrayOfCategory.includes(product.category))) 
     }
 
     function setCategory(kindofCategory: string){
-
         let copyOfSettedCategory = [...typeofCategory];
 
         if(copyOfSettedCategory.includes(kindofCategory)){
-            let position = copyOfSettedCategory.indexOf(kindofCategory);
-            copyOfSettedCategory.splice(position, position + 1);
+            copyOfSettedCategory = copyOfSettedCategory.filter(item => item !== kindofCategory);
         } else {
             copyOfSettedCategory.push(kindofCategory)
         }
