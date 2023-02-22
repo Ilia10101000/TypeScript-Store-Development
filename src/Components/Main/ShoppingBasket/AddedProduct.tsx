@@ -5,9 +5,10 @@ import './shopBasket.css'
 
 interface AddedProductProps{
     product:IShoppingProduct
+    updateCount: (id:number, action: string) => void
 }
 
-export default function AddedProduct({product}:AddedProductProps){
+export default function AddedProduct({product, updateCount}:AddedProductProps){
 
     return (
         <div className='addedProduct-item-container'>
@@ -20,13 +21,13 @@ export default function AddedProduct({product}:AddedProductProps){
                     <div>{product.price}</div>
                 </div>
                 <div className="product-count-container">
-                    <div><VscRemove/></div>
+                    <div style={{border: '1px solid red'}} onClick={() => updateCount(product.id, 'decrease')}><VscRemove/></div>
                     <div>{product.count}</div>
-                    <div><VscAdd/></div>
+                    <div style={{border: '1px solid red'}} onClick={() => updateCount(product.id, 'increase')}><VscAdd/></div>
                 </div>
             </div>
             <div>
-                <div>{product.count * product.price}</div>
+                <div>{(product.count * product.price).toFixed(2)}</div>
             </div>
         </div>
     )

@@ -14,6 +14,7 @@ interface IProductContext{
     data: IShoppingProduct[]
     shopBasketData: IShoppingProduct[]
     addToShopBasket: (id:number) => void
+    updateProductCount: (id:number, action:string) => void
 }
 
 export const ProductListData = React.createContext<IProductContext>({} as IProductContext);
@@ -22,7 +23,7 @@ export const ProductContext = ({children}:ContextProps) => {
 
     const [data, setData] = React.useState<IShoppingProduct[]>([]);
 
-    const [shopBasketData, setShopBasketData] = React.useState<IShoppingProduct[]>([]);
+    const [shopBasketData, setShopBasketData] = React.useState<IShoppingProduct[] | []>([]);
     React.useEffect(() => console.log(shopBasketData),[shopBasketData])
 
     const fetchStoreData = React.useCallback(() => {
@@ -74,10 +75,32 @@ export const ProductContext = ({children}:ContextProps) => {
         }
         localStorage.setItem('shopProductData', JSON.stringify(copyShopBasketData))
     }
+    function updateProductCount(id: number, action:string){
+        
+        let copyShopBasket = [...shopBasketData];
+                // @ts-ignore
+                copyShopBasket = copyShopBasket.map( product => {
+                    if(product.id === id){
+                        if(action === 'increase'){
+                        return {...product, count: product.count + 1}
+                    } else if(action === 'decrease'){
+                        if(product.count >= 1){
+                            return {...product, count: product.count - 1}
+                        } else {
+                            return product
+                        }
+                    }
+                } else {
+                    return product
+                }
+                 })
+
+                setShopBasketData(copyShopBasket)
+    }
 
 
     return (
-        <ProductListData.Provider value={{data, addToShopBasket, shopBasketData}}>
+        <ProductListData.Provider value={{data, addToShopBasket, shopBasketData, updateProductCount}}>
             {children}
         </ProductListData.Provider>
     )
