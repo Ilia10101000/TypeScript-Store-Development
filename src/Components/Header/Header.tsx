@@ -7,8 +7,10 @@ export function Header(){
 
     return(
         <header>
-            <NavBar/>
-            <ShoppingBasketIcon/>
+            <div className="header-container">
+                <NavBar/>
+                <ShoppingBasketIcon/>
+            </div>
         </header>
     )
 }

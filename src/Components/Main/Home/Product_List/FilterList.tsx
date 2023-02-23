@@ -7,8 +7,9 @@ type Category = {
 interface FilterListProps{
     category: Category
     handlerCheckboxChange: (action: string) => void
+    selectedCategotyOfProducts: string[]
 }
-export default function FilterList({category, handlerCheckboxChange}: FilterListProps){
+export default function FilterList({category,selectedCategotyOfProducts, handlerCheckboxChange}: FilterListProps){
     
     return (
         <div className="filter-list-container">
@@ -16,6 +17,7 @@ export default function FilterList({category, handlerCheckboxChange}: FilterList
         key={index} 
         action={category[item]} 
         description={item} 
+        checked={selectedCategotyOfProducts.includes(category[item])}
         handlerOnclick={handlerCheckboxChange}/>)}
         </div>
     )

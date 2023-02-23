@@ -12,9 +12,9 @@ export const ProductList = ({data}: ProductListProps) => {
     const {addToShopBasket} = useContext(ProductListData)
 
     if(data.length){
-        return <div>{data.map( product => <Product key={product.id} product={product} addToShop={addToShopBasket}/>)}</div>
+        return <div className='product-list'>{data.map( product => <Product key={product.id} product={product} addToShop={addToShopBasket}/>)}</div>
     } else{
-        return  <div>Data hasn`t receive</div>
+        return  <div className='product-list-error'>Data hasn`t receive</div>
     }
 
 }

@@ -1,7 +1,13 @@
+footer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #f7d96e;
+}
 .footer-container{
+    border: 1px solid red;
     display: flex;
     padding: 20px;
-    background-color: #f7d96e;
     justify-content: center;
 }
 .footer-container ul{
@@ -9,4 +15,21 @@
     list-style-type: none;
     display: flex;
     justify-content: space-between;
+}
+@media screen and (max-width: 576px){
+
+}
+@media screen and (min-width: 576px){
+    
+}
+@media screen and (min-width: 768px){
+    
+}
+@media screen and (min-width: 992px){
+
+}
+@media screen and (min-width: 1200px){
+    .footer-container{
+        width: 1200px;
+    }
 }

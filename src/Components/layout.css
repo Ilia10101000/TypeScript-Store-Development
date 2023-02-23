@@ -1,0 +1,29 @@
+.layout-wrapper{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .main-container{
+    flex: 1 1 auto;
+    border: 1px solid green;
+    /* padding: 0px 50px; */
+  }
+  @media screen and (max-width: 576px){
+
+  }
+  @media screen and (min-width: 576px){
+      
+  }
+  @media screen and (min-width: 768px){
+      
+  }
+  @media screen and (min-width: 992px){
+  
+  }
+  @media screen and (min-width: 1200px){
+      .main-container{
+          width: 1200px
+      }
+  }

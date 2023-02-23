@@ -4,9 +4,10 @@ interface FilterCheckboxProps{
     action: string
     description: string
     handlerOnclick: (category:string) => void
+    checked: boolean
 }
 
-export default function FilterCheckbox({action, description, handlerOnclick}:FilterCheckboxProps){
+export default function FilterCheckbox({action, description, checked, handlerOnclick}:FilterCheckboxProps){
 
-    return <label><input type='checkbox' onClick={() => handlerOnclick(action)}/> {description}</label>
+    return <div className="checkbox-item"><label><input type='checkbox' onClick={() => handlerOnclick(action)} checked={checked}/> {description}</label></div>
 }

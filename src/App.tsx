@@ -1,12 +1,12 @@
 import React from 'react';
 import { ProductContext} from './Hook/ProductContext';
 import {Routes, Route} from 'react-router-dom'
-import Layout from './Components/Main/Layout';
+import Layout from './Components/Layout';
 import Home from './Components/Main/Home/Home';
 import About from './Components/Main/About/About';
 import Reviews from './Components/Main/Reviews/Reviews';
 import ShoppingBasket from './Components/Main/ShoppingBasket/ShoppingBasket';
-import PageHasNotFound from './Components/Main/PageHasNotFound';
+import PageHasNotFound from './Components/PageHasNotFound';
 
 export const App:React.FC = () => {
 

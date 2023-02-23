@@ -15,6 +15,7 @@ interface IProductContext{
     shopBasketData: IShoppingProduct[]
     addToShopBasket: (id:number) => void
     updateProductCount: (id:number, action:string) => void
+    deleteProductFromShopBasket:(id: number) => void
 }
 
 export const ProductListData = React.createContext<IProductContext>({} as IProductContext);
@@ -43,7 +44,7 @@ export const ProductContext = ({children}:ContextProps) => {
     },[]);
     React.useEffect(() => {
         loadStorageShoppingData()
-    },[])
+    },[]);
 
     function loadStorageShoppingData(){
         if(localStorage.getItem('shopProductData')){
@@ -51,30 +52,30 @@ export const ProductContext = ({children}:ContextProps) => {
             setShopBasketData(data)
         }
     }
-
     const addToShopBasket = (id:number) => {
 
         let ordedProduct = data.filter( product => product.id === id)[0];
         let copyShopBasketData = [...shopBasketData];
 
-        if(copyShopBasketData.some(item => item.id === ordedProduct.id)){
+            if(copyShopBasketData.some(item => item.id === ordedProduct.id)){
 
-            copyShopBasketData = copyShopBasketData.map(item => {
+                copyShopBasketData = [...copyShopBasketData].map(item => {
 
-                if(item.id = ordedProduct.id){
-                    return {...item, count: item.count + 1}
-                } else {
-                    return item
-                }
-            });
-            setShopBasketData(copyShopBasketData)
-        } else {
-            ordedProduct.count = ordedProduct.count + 1
-            copyShopBasketData.push(ordedProduct)
-            setShopBasketData(copyShopBasketData)
-        }
+                    if(item.id = ordedProduct.id){
+                        return {...item, count: item.count + 1}
+                    } else {
+                        return item
+                    }
+                });
+
+            } else {
+                copyShopBasketData.push({...ordedProduct, count: ordedProduct.count + 1})
+            }
+
         localStorage.setItem('shopProductData', JSON.stringify(copyShopBasketData))
+        setShopBasketData(copyShopBasketData)
     }
+
     function updateProductCount(id: number, action:string){
         
         let copyShopBasket = [...shopBasketData];
@@ -84,7 +85,7 @@ export const ProductContext = ({children}:ContextProps) => {
                         if(action === 'increase'){
                         return {...product, count: product.count + 1}
                     } else if(action === 'decrease'){
-                        if(product.count >= 1){
+                        if(product.count > 1){
                             return {...product, count: product.count - 1}
                         } else {
                             return product
@@ -94,13 +95,20 @@ export const ProductContext = ({children}:ContextProps) => {
                     return product
                 }
                  })
-
+                localStorage.setItem('shopProductData', JSON.stringify(copyShopBasket))
                 setShopBasketData(copyShopBasket)
     }
-
+    
+    function deleteProductFromShopBasket(id: number){
+        if(window.confirm('Видалити вибрану позицію?')){
+            let copyBasketData = [...shopBasketData].filter( product => product.id !== id);
+            localStorage.setItem('shopProductData', JSON.stringify(copyBasketData));
+            setShopBasketData(copyBasketData)
+        }
+    }
 
     return (
-        <ProductListData.Provider value={{data, addToShopBasket, shopBasketData, updateProductCount}}>
+        <ProductListData.Provider value={{data, addToShopBasket, shopBasketData, updateProductCount, deleteProductFromShopBasket}}>
             {children}
         </ProductListData.Provider>
     )

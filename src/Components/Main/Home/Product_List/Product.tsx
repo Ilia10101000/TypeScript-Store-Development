@@ -1,6 +1,5 @@
 import React from 'react';
 import { IShoppingProduct } from '../../../../interface';
-import './product.css'
 
 interface ProductDataProps{
     product:IShoppingProduct,
@@ -11,18 +10,14 @@ export default function Product({product, addToShop}:ProductDataProps){
 
     return(
         <div className='product-item-container'>
-            <figure className='productItem'>
-                <img src={product.image} alt={product.title}/>
-                <figcaption className='description optional-description'>{product.description}</figcaption>
-            </figure>
-            <div className='product-price-container'>
-                <div className='product-price'>
-                    <p>{product.price}$</p>
-                    <p>{product.rating.rate}</p>
-                    <p>{product.rating.count}</p>
-                </div>
+            <div className='productItem'>
+                <div className='img-wrapper'><img src={product.image} alt={product.title}/></div>
+                <div className='description'>{product.description}</div>
             </div>
-            <button onClick={() => addToShop(product.id)}>Click</button>
+            <div className='product-price-container'>
+                <div className='product-price'>{product.price}$</div>
+                <button onClick={() => addToShop(product.id)}>Click</button>
+            </div>
         </div>
     )
 }

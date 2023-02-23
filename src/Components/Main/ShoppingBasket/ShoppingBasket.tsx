@@ -4,7 +4,7 @@ import AddedProduct from './AddedProduct'
 
 export default function ShoppingBasket(){
 
-    const {shopBasketData, updateProductCount} = React.useContext(ProductListData);
+    const {shopBasketData, updateProductCount, deleteProductFromShopBasket} = React.useContext(ProductListData);
 
     if(!shopBasketData.length){
 
@@ -15,7 +15,7 @@ export default function ShoppingBasket(){
 
         return (
             <div>
-                {shopBasketData.map(item => <AddedProduct key={item.id} product={item} updateCount={updateProductCount}/>)}
+                {shopBasketData.map(item => <AddedProduct key={item.id} product={item} updateCount={updateProductCount} deleteProduct={deleteProductFromShopBasket}/>)}
             </div>
         )
     }

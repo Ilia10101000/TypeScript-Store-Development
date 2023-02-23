@@ -1,7 +1,7 @@
 .addedProduct-item-container{
     display: flex;
     /* justify-content: center; */
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 .addedProduct-item{
     height: 100px;
@@ -9,10 +9,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid green;
+    /* border: 1px solid green; */
 }
 .product-price-container{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
     flex: 0 0 auto;
 }
@@ -23,7 +23,7 @@
     padding: 10px;
 }
 .product-price-container > div{
-    border: 1px solid green;
+    /* border: 1px solid green; */
 }
 .addedProduct-item img{
     height: 80%;
