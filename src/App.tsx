@@ -7,6 +7,7 @@ import About from './Components/Main/About/About';
 import Reviews from './Components/Main/Reviews/Reviews';
 import ShoppingBasket from './Components/Main/ShoppingBasket/ShoppingBasket';
 import PageHasNotFound from './Components/PageHasNotFound';
+import ImageOfProduct from './Components/Main/Home/Product_List/ImageOfProduct';
 
 export const App:React.FC = () => {
 
@@ -18,6 +19,7 @@ export const App:React.FC = () => {
           <Route path='about' element={<About/>}></Route>
           <Route path='basket' element={<ShoppingBasket/>}></Route>
           <Route path='reviews' element={<Reviews/>}></Route>
+          <Route path='img' element={<ImageOfProduct/>}></Route>
           <Route path='*' element={<PageHasNotFound/>}></Route>
         </Route>
       </Routes>

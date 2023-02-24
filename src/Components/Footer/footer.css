@@ -1,11 +1,12 @@
 footer{
     width: 100%;
+    border-top: 1px solid #8c8c8c;
     display: flex;
     justify-content: center;
-    background-color: #f7d96e;
+    background-color: #fff;
 }
 .footer-container{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
     padding: 20px;
     justify-content: center;

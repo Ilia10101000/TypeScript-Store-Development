@@ -11,7 +11,7 @@ export function ShoppingBasketIcon(){
         <div className="shopping-basket-container">
             <div className="shopping-basket">
             <NavLink to='basket'><img src={shoppingBasket}/></NavLink>
-            <div className="ordered-count">{shopBasketData.length?shopBasketData.length:null}</div>
+            {shopBasketData.length > 0 && <div className="ordered-count">{shopBasketData.length}</div>}
             </div>
         </div>
     )
