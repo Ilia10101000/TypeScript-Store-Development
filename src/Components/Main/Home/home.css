@@ -1,15 +1,6 @@
 .home-container{
     display: flex;
 }
-
-/* .product-list-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 15px;
-    justify-items:center;
-    
-} */
-
 .product-item-container{
     /* border: 1px solid red; */
     display: flex;
@@ -47,19 +38,44 @@
     justify-content: space-around;
     margin-bottom: 10px;
 }
+.hidden-element{
+    display: none;
+}
 
 .filter-list-container{
     display: flex;
+}
+.filter-button{
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: rgba(140,140,140,.3);
+    padding: 5px 15px;
+    letter-spacing: 1px;
+    box-shadow: 1px 1px 7px #8c8c8c, -1px -1px 7px #8c8c8c;
+    cursor: pointer;
+    border-radius: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    font-size: 16px;
+}
+.filter-button:hover{
+    box-shadow: 1px 2px 8px #8c8c8c, -1px -2px 8px #8c8c8c; 
 }
 .opened-img{
     display: flex;
     justify-content: center;
 }
-.hidden-filter-list{
-    transition: position .4s;
-    position: absolute;
-    right : 5%;
-    /* visibility: hidden; */
+.filter-category{
+    /* align-self:center */
+    letter-spacing: 1.5px;
+    font-size: 20px;
+    background-color: rgba(140,140,140,.3);
+    padding: 15px 0px;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px 20px 0px 0px;
 }
 .buy-button{
     border: none;
@@ -78,12 +94,13 @@
 @media screen and (max-width: 575px){
     .home-container{
         flex-direction: column;
+        align-items:center;
     }
     .product-list-container{
         display: grid;
         grid-template-columns: 1fr;
         grid-gap: 10px;
-        justify-items:center;
+        max-width: 470px;
         
     }
     .filter-list-container{
@@ -105,25 +122,13 @@
 
 
     }
-    .filter-button{
-        border: none;
-        background-color: rgba(140,140,140,.3);
-        padding: 5px 15px;
-        letter-spacing: 1px;
-        box-shadow: 1px 1px 7px #8c8c8c, -1px -1px 7px #8c8c8c;
-        cursor: pointer;
-        border-radius: 20px;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-        sans-serif;
-        font-size: 16px;
-        transition: .3s;
-    }
-    .filter-button:hover{
-        box-shadow: 0px 2px 3px #8c8c8c, 0px -2px 3px #8c8c8c; 
+    .hidden-filter-list{
+        /* position: absolute;
+        right : 110%; */
+        opacity: 0;
     }
     .checkbox-item {
-        font-size: 14px;
+        font-size: 9px;
         margin-right: 7px;
         display: flex;
         align-items: center;
@@ -139,23 +144,52 @@
 @media screen and (min-width: 576px) and (max-width: 767px){
     .home-container{
         flex-direction: column;
+        align-items: center;
+        /* border: 1px solid green */
     }
     .product-list-container{
         display: grid;
         grid-template-columns: 1fr;
         grid-gap: 10px;
-        justify-items:center;
+        max-width: 650px;
+        box-shadow: none;
         
     }
     .filter-list-container{
-        /* display: flex; */
-        padding: 30px 0px 30px 10px;
-        flex-direction: column;
-        border-radius: 20px;
+        /* border: 1px solid red; */
+        padding: 20px 0px;
+        width: 100%;
         box-shadow: 1px 1px 7px #8c8c8c, -1px -1px 7px #8c8c8c;
-        flex: 0 0 150px;
-        align-self: start;
-        /* margin-right: 15px; */
+        box-shadow: none;
+        /* align-self: start; */
+        justify-content: space-between;
+    }
+    .filter-list{
+        /* border: 1px solid red; */
+        display: flex;
+        align-items: center;
+        box-shadow: 1px 1px 7px #8c8c8c, -1px -1px 7px #8c8c8c;
+        border-radius: 20px;
+        padding: 5px 10px;
+
+    }
+    .hidden-filter-list{
+        /* position: absolute;
+        right : 110%; */
+        opacity: 0;
+    }
+    .checkbox-item {
+        /* font-size: 9px; */
+        margin-right: 7px;
+        display: flex;
+        align-items: center;
+    }
+    .checkbox-item label {
+        display: flex;
+        align-items: center;
+    }
+    .checkbox-item input[type=checkbox]{
+        margin-right: 3px;
     }
 }
 @media screen and (min-width: 768px) and (max-width: 991px){
@@ -166,12 +200,9 @@
         justify-items:center;
         
     }
-    .filter-button-container{
-        display: none;
-    }
     .filter-list-container{
         /* display: flex; */
-        padding: 30px 0px 30px 10px;
+        padding: 0px 0px 30px 0px;
         flex-direction: column;
         border-radius: 20px;
         box-shadow: 1px 1px 7px #8c8c8c, -1px -1px 7px #8c8c8c;
@@ -181,6 +212,14 @@
         position: sticky;
         top:15px;
         left:0;
+    }
+    .filter-list{
+        padding: 20px 0px 0px 10px
+    }
+    .checkbox-item {
+        /* display: flex;
+        align-items: center; */
+        margin-bottom: 5px
     }
 }
 @media screen and (min-width: 992px) and (max-width:1199px){
@@ -191,12 +230,9 @@
         justify-items:center;
         
     }
-    .filter-button-container{
-        display: none;
-    }
     .filter-list-container{
         /* display: flex; */
-        padding: 30px 0px 30px 10px;
+        padding: 0px 0px 30px 0px;
         flex-direction: column;
         border-radius: 20px;
         box-shadow: 1px 1px 7px #8c8c8c, -1px -1px 7px #8c8c8c;
@@ -206,6 +242,14 @@
         position: sticky;
         top:15px;
         left:0;
+    }
+    .filter-list{
+        padding: 20px 0px 0px 10px
+    }
+    .checkbox-item {
+        /* display: flex;
+        align-items: center; */
+        margin-bottom: 5px
     }
 }
 @media screen and (min-width: 1200px){
@@ -216,12 +260,9 @@
         justify-items:center;
         
     }
-    .filter-button-container{
-        display: none;
-    }
     .filter-list-container{
         /* display: flex; */
-        padding: 30px 0px 30px 10px;
+        padding: 0px 0px 30px 0px;
         flex-direction: column;
         border-radius: 20px;
         box-shadow: 1px 1px 7px #8c8c8c, -1px -1px 7px #8c8c8c;
@@ -231,5 +272,13 @@
         position: sticky;
         top:15px;
         left:0;
+    }
+    .filter-list{
+        padding: 20px 0px 0px 10px
+    }
+    .checkbox-item {
+        /* display: flex;
+        align-items: center; */
+        margin-bottom: 5px
     }
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import {GoTriangleDown, GoTriangleRight} from 'react-icons/go'
 import FilterCheckbox from "./FilterCheckbox";
 
 type Category = {
@@ -10,8 +11,21 @@ interface FilterListProps{
     selectedCategotyOfProducts: string[]
 }
 export default function FilterList({category,selectedCategotyOfProducts, handlerCheckboxChange}: FilterListProps){
-    
+
     const [visibilityFilterList, setVisibilityFilterList] = React.useState<boolean>(false)
+    const [screenWidth, setScreenWidth] = React.useState(window.screen.width);
+
+    React.useEffect(() => {
+        
+        function handleResize(){
+            setScreenWidth(window.innerWidth)
+        }
+        
+        window.addEventListener('resize', handleResize)
+        setScreenWidth(window.innerWidth)
+        
+        return () => window.removeEventListener('resize', handleResize)
+    },[])
 
     function toogleVisibilityFilterList(){
         setVisibilityFilterList(state => !state)
@@ -19,10 +33,10 @@ export default function FilterList({category,selectedCategotyOfProducts, handler
 
     return (
         <div className="filter-list-container">
-            <div className="filter-button-container">
-                <button className="filter-button" onClick={toogleVisibilityFilterList}>Filter</button>
+            <div className={screenWidth < 767?'filter-button-container':'hidden-element'}>
+                <button className="filter-button" onClick={toogleVisibilityFilterList}>Filter {visibilityFilterList?<GoTriangleDown/>:<GoTriangleRight/>}</button>
             </div>
-            {/* <div className="filter-list"> */}
+            <div className={screenWidth < 767?'hidden-element':'filter-category'}>Category</div>
             <div className={`filter-list ${visibilityFilterList?'':'hidden-filter-list'}`}>
                 {Object.keys(category).map((item:string, index) => <FilterCheckbox 
                 key={index} 
