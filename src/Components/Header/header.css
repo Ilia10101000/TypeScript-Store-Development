@@ -7,6 +7,7 @@ header{
 }
 .header-container{
     display: flex;
+    padding: 0px 20px;
     /* border: 1px solid yellow */
 }
 .navbar-links-container{
@@ -19,8 +20,22 @@ header{
 .navbar-links{
     /* border: 1px solid green; */
     display: flex;
+    padding: 10px;
+    align-items: center;
     justify-content: space-between;
-    width: 50%;
+    width: 30%;
+}
+
+.navbar-links div {
+    /* border: 1px solid red; */
+    box-sizing: border-box;
+}
+.navbar-links div:hover{
+    border-bottom: 1px solid #8c8c8c;
+    padding-top: 1px;
+}
+.navbar-brand img{
+    filter: invert(65%)
 }
 .navbar-links a {
     text-decoration: none;
@@ -37,6 +52,9 @@ header{
     position: relative;
     /* border: 1px solid green; */
 }
+.shopping-basket img{
+    filter: invert(65%)
+}
 .ordered-count{
     position: absolute;
     top:-10px;
@@ -48,17 +66,25 @@ header{
     display: flex;
     justify-content: center;
 }
-@media screen and (max-width: 576px){
-
+@media screen and (max-width: 575px){
+    .header-container{
+        width: 100%
+    }
 }
-@media screen and (min-width: 576px){
-    
+@media screen and (min-width: 576px) and (max-width: 767px){
+    .header-container{
+        width: 576px
+    }
 }
-@media screen and (min-width: 768px){
-    
+@media screen and (min-width: 768px) and (max-width: 991px){
+    .header-container{
+        width: 768px
+    }
 }
-@media screen and (min-width: 992px){
-
+@media screen and (min-width: 992px) and (max-width:1199px){
+    .header-container{
+        width: 992px
+    }
 }
 @media screen and (min-width: 1200px){
     .header-container{

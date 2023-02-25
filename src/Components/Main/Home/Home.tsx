@@ -6,10 +6,10 @@ import { IShoppingProduct } from "../../../interface";
 import './home.css'
 
 const category = {
-    'Для чоловіків':`men's clothing`,
-    'Прикраси':`jewelery`,
-    'Електроніка':`electronics`,
-    'Для жінок':`women's clothing`
+    'For man':`men's clothing`,
+    'For woman':`women's clothing`,
+    'Jewelery':`jewelery`,
+    'Electronics':`electronics`
 }
 
 type CategoryType = Array<string> 

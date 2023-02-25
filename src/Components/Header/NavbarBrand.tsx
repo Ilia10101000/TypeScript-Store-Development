@@ -4,7 +4,7 @@ import brand from '../../img/pngwing.com.png'
 export function NavbarBrand(){
 
     return (
-        <div>
+        <div className="navbar-brand">
             <img src={brand}/>
         </div>
     )

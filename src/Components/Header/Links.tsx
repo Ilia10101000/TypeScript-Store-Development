@@ -6,9 +6,9 @@ export function Links(){
     return (
         <div className="navbar-links-container">
         <div className="navbar-links">
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="about">About</NavLink>
-            <NavLink to="reviews">Reviews</NavLink>
+            <div><NavLink to="/">Home</NavLink></div>
+            <div><NavLink to="about">About</NavLink></div>
+            <div><NavLink to="reviews">Reviews</NavLink></div>
         </div>
         </div>
     )
