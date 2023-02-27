@@ -1,7 +1,7 @@
 import React from "react";
 import { IShoppingProduct } from "../../../interface";
 import { VscAdd, VscRemove } from "react-icons/vsc";
-import { MdDelete } from "react-icons/md";
+import delete_icon from '../../../img/delete.png'
 import './shopBasket.css'
 
 interface AddedProductProps{
@@ -15,23 +15,22 @@ export default function AddedProduct({product, updateCount, deleteProduct}:Added
     return (
         <div className='addedProduct-item-container'>
             <div className='addedProduct-item'>
-                <img src={product.image} alt={product.title}/>
-                <div className='description optional-description'>{product.title}</div>
+                <img className="addedproduct-image" src={product.image} alt={product.title}/>
+                <div className='description'>{product.title}</div>
             </div>
-            <div className='product-price-container'>
-                <div>
-                    <div>{product.price}</div>
+            <div className='addedProduct-item-count_price-container'>
+                <div className="addedProduct-price">
+                    {product.price} $
                 </div>
-                <div className="product-count-container">
-                    <div style={{border: '1px solid red'}} onClick={() => updateCount(product.id, 'decrease')}><VscRemove/></div>
-                    <div>{product.count}</div>
-                    <div style={{border: '1px solid red'}} onClick={() => updateCount(product.id, 'increase')}><VscAdd/></div>
+                <div className="addedproduct-count">
+                    <div className="change-count-icon" onClick={() => updateCount(product.id, 'decrease')}><VscRemove/></div>
+                    <div className="count">{product.count}</div>
+                    <div className="change-count-icon" onClick={() => updateCount(product.id, 'increase')}><VscAdd/></div>
                 </div>
             </div>
-            <div>
-                <div>{(product.count * product.price).toFixed(2)}</div>
+            <div className="delete-icon-container" onClick={()=>deleteProduct(product.id)}>
+                <img className="delete-icon" src={delete_icon} alt='delete_icon'/>
             </div>
-            <div onClick={()=>deleteProduct(product.id)}><MdDelete/></div>
         </div>
     )
 }
