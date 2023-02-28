@@ -17,33 +17,27 @@
     .main-container{
       width: 100%;
       min-width: 370px;
-  }
-  .main-container{
-    padding:20px 10px;
-
-  }
+      padding:20px 10px;
+    }
   }
   @media screen and (min-width: 576px) and (max-width: 767px){
     .main-container{
       width: 100%;
-    }
-    .main-container{
       padding:20px 10px;
-  
-    } 
+    }
   }
   @media screen and (min-width: 768px) and (max-width: 991px){
     .main-container{
       width: 100%;
-  }
+    }
   }
   @media screen and (min-width: 992px) and (max-width: 1199px){
     .main-container{
       width: 992px;
-  }
+    }
   }
   @media screen and (min-width: 1200px){
-      .main-container{
-          width: 1200px
-      }
+    .main-container{
+        width: 1200px
+    }
   }

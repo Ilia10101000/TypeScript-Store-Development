@@ -25,7 +25,6 @@ export const ProductContext = ({children}:ContextProps) => {
     const [data, setData] = React.useState<IShoppingProduct[]>([]);
 
     const [shopBasketData, setShopBasketData] = React.useState<IShoppingProduct[] | []>([]);
-    React.useEffect(() => console.log(shopBasketData),[shopBasketData])
 
     const fetchStoreData = React.useCallback(() => {
         if(localStorage.getItem('StoreDataValue')){
@@ -41,8 +40,6 @@ export const ProductContext = ({children}:ContextProps) => {
 
     React.useEffect(() => {
         fetchStoreData();
-    },[]);
-    React.useEffect(() => {
         loadStorageShoppingData()
     },[]);
 
@@ -57,11 +54,10 @@ export const ProductContext = ({children}:ContextProps) => {
         let ordedProduct = data.filter( product => product.id === id)[0];
         let copyShopBasketData = [...shopBasketData];
 
-            if(copyShopBasketData.some(item => item.id === ordedProduct.id)){
+            if(copyShopBasketData.some(product => product.id === ordedProduct.id)){
+                copyShopBasketData = copyShopBasketData.map(item => {
 
-                copyShopBasketData = [...copyShopBasketData].map(item => {
-
-                    if(item.id = ordedProduct.id){
+                    if(item.id == id){
                         return {...item, count: item.count + 1}
                     } else {
                         return item

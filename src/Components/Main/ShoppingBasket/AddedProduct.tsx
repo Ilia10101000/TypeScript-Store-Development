@@ -15,7 +15,7 @@ export default function AddedProduct({product, updateCount, deleteProduct}:Added
     return (
         <div className='addedProduct-item-container'>
             <div className='addedProduct-item'>
-                <img className="addedproduct-image" src={product.image} alt={product.title}/>
+                <div className="addedproduct-image"><img src={product.image} alt={product.title}/></div>
                 <div className='description'>{product.title}</div>
             </div>
             <div className='addedProduct-item-count_price-container'>

@@ -9,7 +9,7 @@ export default function ShoppingBasket(){
     if(!shopBasketData.length){
 
         return (
-            <div>You dont choose any product</div>
+            <div className="empty-shopBasket">You dont choose any product</div>
         )
     } else {
 
