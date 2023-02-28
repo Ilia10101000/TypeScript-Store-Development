@@ -1,10 +1,13 @@
 import React from "react";
 import { ProductListData } from "../../../Hook/ProductContext";
 import AddedProduct from './AddedProduct'
+import { useNavigate, NavLink} from "react-router-dom";
 
 export default function ShoppingBasket(){
 
     const {shopBasketData, updateProductCount, deleteProductFromShopBasket} = React.useContext(ProductListData);
+
+    const navigate = useNavigate();
 
     if(!shopBasketData.length){
 
@@ -14,6 +17,10 @@ export default function ShoppingBasket(){
     } else {
 
         const total = shopBasketData.reduce((acc, product) => acc + (product.price * product.count),0).toFixed(2)
+
+        const confirmOrder = () => {
+            navigate('/confirm', {state:{total,shopBasketData}})
+        }
 
         return (
             <div className="shop-basket-container">
@@ -25,7 +32,7 @@ export default function ShoppingBasket(){
                         <div>Total:</div>
                         <div className="total-sum">{total} $</div>
                     </div>
-                    <button className="confirm-button">Confirm</button>
+                    <button onClick={confirmOrder} className="confirm-button">Confirm</button>
                 </div>
             </div>
         )
