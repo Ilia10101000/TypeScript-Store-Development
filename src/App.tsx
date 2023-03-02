@@ -8,7 +8,7 @@ import Reviews from './Components/Main/Reviews/Reviews';
 import ShoppingBasket from './Components/Main/ShoppingBasket/ShoppingBasket';
 import PageHasNotFound from './Components/PageHasNotFound';
 import ImageOfProduct from './Components/Main/Home/Product_List/ImageOfProduct';
-import ConfirmPage from './Components/Main/ConfirmPage/ConfirmPage';
+import ConfirmPage from './Components/Main/ConfirmPage/ConfirmPage.jsx';
 
 export const App:React.FC = () => {
 
