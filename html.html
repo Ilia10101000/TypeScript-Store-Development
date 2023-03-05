@@ -9,22 +9,32 @@
 <body>
     <style>
         .parent{
-            background-color: aqua;
-            display: flex;
-            height: 300px;
-        }
-        .child{
-            flex: 0 0 200px;
+            display: block;
             border: 1px solid red;
+            border-radius: 50%;
+            padding: 50px;
+            height: 300px;
+            width: 300px;
+            position: relative;
+        }
+        .parent:before{
+            content: '';
+            display: inline-block;
+            width: 250px;
+            height: 250px;
+            background-color: #f4f4f4;
+            border-radius: 50%;
+            position: absolute;
+            top: 75px;
+            left: 75px;
+        }
+        .parent:hover::before{ 
+            background-color: red;
         }
 
+
     </style>
-    <div class="parent">
-        <div class="child"></div>
-        <div class="child"></div>
-        <div class="child"></div>
-        <div class="child"></div>
-        <div class="child"></div>
-    </div>
+    <div class="parent"></div>
 </body>
+<script src="./some.js"></script>
 </html>

@@ -1,52 +1,96 @@
 import React, { useState, useEffect } from 'react';
+import DeliveryPage from './DeliveryPage';
+import DeliveryPoints from './DeviveryPoints';
+import PickUp from './PickUp';
+import './confirm-list.css'
 
-const key = 'd6109a921ad8b4db9eb42ea743a3d0c6';
-const url = 'https://api.novaposhta.ua/v2.0/json/';
+
 
 export default function ConfirmPage(){
     
-    const [value, setValue] = React.useState('')
+    const [typeDelivery, setTypeDelivery] = React.useState();
 
-    const getCityes = async () => {
+    let result;
 
-        const myHeaders = new Headers();
-
-        myHeaders.append("Content-Type", "application/json");
-
-        const raw = JSON.stringify({
-            "apiKey": "d6109a921ad8b4db9eb42ea743a3d0c6",
-            "modelName": "Address",
-            "calledMethod": "searchSettlements",
-            "methodProperties": {
-            "CityName": value,
-            "Limit": "5",
-            "Page": "1"
-        }
-        });
-        
-        const requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow'
-        };
-        
-        const data = await fetch("https://api.novaposhta.ua/v2.0/json/", requestOptions);
-        const response = await data.json();
-        console.log(response.data[0]);
+    if(typeDelivery === 'pickup') result = <PickUp/>;
+    if(typeDelivery === 'service') result = <DeliveryPage><DeliveryPoints/></DeliveryPage>;
+    function chooseDelivery(e){
+        setTypeDelivery(e.target.value)
     }
-    React.useEffect(() => {
-        getCityes()
-        console.log(value)
-    },[value])
-    
     return (
-
         <div>
-            <input value={value} onChange={e => setValue(e.target.value)}/>
+            <h5>Choose delivery type</h5>
+            <label className='label-wrapper'><input type='radio' name='delivery' value='pickup' onChange={chooseDelivery}/><span className='custom-radio-checkbox'></span>Pick up</label>
+            <label className='label-wrapper'><input type='radio' name='delivery' value='service' onChange={chooseDelivery}/><span className='custom-radio-checkbox'></span>Delivery by Nova Poshta</label>
+            {result}
         </div>
+       
     )
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //     const data = await fetch(url, JSON.stringify({
 //                                     method: "POST",
 //                                     apiKey: key,
