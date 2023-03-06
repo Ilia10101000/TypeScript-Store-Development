@@ -12,12 +12,12 @@ export default function DropChoossenList({description,present,city, setCity, set
 
     if(present && city && setCity){
         return (
-            <div onClick={() => setCity(present,city)}>{present}</div>
+            <div className="drop-choosen-list" onClick={() => setCity(present,city)}>{present}</div>
         )
     }
      else if(description && setDeliveryPoint){
         return (
-            <div onClick={() => setDeliveryPoint(description)}>{description}</div>
+            <div className="drop-choosen-list" onClick={() => setDeliveryPoint(description)}>{description}</div>
         )
     }
 }

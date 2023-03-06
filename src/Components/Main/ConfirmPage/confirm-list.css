@@ -1,29 +1,18 @@
-.cityesList, .pointsList{
+.confirm-page{
     display: flex;
     flex-direction: column;
-    background-color: #fff;
-    width: 400px;
-    max-height:200px;
-    overflow-y: scroll;
-    border: 1px solid #8c8c8c;
-    position: absolute;
-    /* bottom: -200px; */
-
+    /* justify-content: center; */
+    /* align-items: center; */
 }
-.city, .deliveruPoint {
-    position: relative;
+.deliveryType-container > *{
+    margin-bottom: 20px;
 }
-.cityesList div:hover, .pointsList div:hover {
-    background-color: #e0e0e0;
-    cursor:default;
+.label-wrapper{
+    display: flex;
+    align-items: center;
 }
-.cityesList div:not(:first-child), .pointsList div {
-    border-top: 1px solid #8c8c8c;
-    /* border-bottom: 1px #8c8c8c; */
-    padding: 3px ;
-}
-input[type=radio]{
-    display: none;
+.label-wrapper:not(:last-child){
+    margin-bottom: 10px;
 }
 .custom-radio-checkbox{
     display: inline-block;
@@ -49,12 +38,47 @@ input[type=radio]:checked + .custom-radio-checkbox:before{
     top: 3px;
     left: 3px;
 }
-.label-wrapper{
-    display: flex;
-    align-items: center;
+.custom-select{
+    display: inline-block;
+    min-width: 150px;
+    font-family: sans-serif;
+    margin-bottom: 20px;
 }
-.label-wrapper:not(:last-child){
-    margin-bottom: 10px;
+.custom-select div{
+    width: 100%;
+}
+
+.selected-option{
+    border-bottom: 1px solid #8c8c8c;
+    padding: 5px;
+    transition: .3s;
+    display: flex;
+    justify-content: space-between;
+    user-select: none;
+    cursor: default;
+}
+.selected-option::after{
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height:10px;
+    background: linear-gradient( to left top, red 0%, red 50%, white 50%, white 100%);
+    transform: rotate(45deg);
+}
+.selected-option:hover{
+    border-bottom: 1px solid red;
+}
+.custom-select .options{
+    box-shadow: 1px 1px 10px #8c8c8c;
+    border-radius: 0px 0px 5px 5px;
+}
+.custom-select .options div{
+    padding: 3px;
+    cursor: default;
+    user-select: none;
+}
+.custom-select .options div:hover{
+    background-color: #e5e5e5;
 }
 .form-group{
     position: relative;
@@ -68,18 +92,17 @@ input[type=radio]:checked + .custom-radio-checkbox:before{
     top:0;
     left:0;
     user-select: none;
-    /* z-index: -1; */
     color: #9e9e9e;
     transition: 0.3s;
 }
 .form-input{
     width: 100%;
     border: none;
-    padding-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 2px;
     border-bottom: 1px solid #8c8c8c;
     background-color: transparent;
     outline: none;
-    letter-spacing: 1px;
     transition: 0.3s;
 }
 .form-input:focus{
@@ -89,4 +112,52 @@ input[type=radio]:checked + .custom-radio-checkbox:before{
     top:-10px;
     font-size: 10px;
     color:#8c8c8c;
+}
+.cityesList, .pointsList{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    width: 400px;
+    max-height:200px;
+    overflow-y: scroll;
+    box-shadow: 1px 1px 7px #8c8c8c;
+    position: relative;
+    top: -19px;
+}
+.cityesList div:hover, .pointsList div:hover {
+    background-color: #e0e0e0;
+    cursor:default;
+}
+.cityesList div:not(:first-child), .pointsList div {
+    border-top: 1px solid #8c8c8c;
+    padding: 3px ;
+}
+.drop-choosen-list{
+    padding: 5px 3px;
+}
+input[type=radio]{
+    display: none;
+}
+
+
+
+
+@media screen and (max-width: 575px){
+    .cityesList, .pointsList{
+        width: 100%;
+    }
+}
+@media screen and (min-width: 576px){
+    .cityesList, .pointsList{
+        max-width: 500px
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 991px){
+
+}
+@media screen and (min-width: 992px) and (max-width:1199px){
+
+}
+@media screen and (min-width: 1200px){
+
 }

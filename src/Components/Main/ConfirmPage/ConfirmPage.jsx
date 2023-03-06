@@ -18,10 +18,12 @@ export default function ConfirmPage(){
         setTypeDelivery(e.target.value)
     }
     return (
-        <div>
-            <h5>Choose delivery type</h5>
-            <label className='label-wrapper'><input type='radio' name='delivery' value='pickup' onChange={chooseDelivery}/><span className='custom-radio-checkbox'></span>Pick up</label>
-            <label className='label-wrapper'><input type='radio' name='delivery' value='service' onChange={chooseDelivery}/><span className='custom-radio-checkbox'></span>Delivery by Nova Poshta</label>
+        <div className='confirm-page'>
+            <div className='deliveryType-container'>
+                <h4>Choose delivery type</h4>
+                <label className='label-wrapper'><input type='radio' name='delivery' value='pickup' onChange={chooseDelivery}/><span className='custom-radio-checkbox'></span>Pick up</label>
+                <label className='label-wrapper'><input type='radio' name='delivery' value='service' onChange={chooseDelivery}/><span className='custom-radio-checkbox'></span>Delivery by Nova Poshta</label>
+            </div>
             {result}
         </div>
        

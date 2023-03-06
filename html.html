@@ -10,28 +10,14 @@
     <style>
         .parent{
             display: block;
-            border: 1px solid red;
-            border-radius: 50%;
+            background: linear-gradient( to left top, red 0%, red 50%, white 50%, white 100%);
+            /* border: 1px solid red; */
             padding: 50px;
             height: 300px;
             width: 300px;
+            transform: rotate(45deg);
             position: relative;
         }
-        .parent:before{
-            content: '';
-            display: inline-block;
-            width: 250px;
-            height: 250px;
-            background-color: #f4f4f4;
-            border-radius: 50%;
-            position: absolute;
-            top: 75px;
-            left: 75px;
-        }
-        .parent:hover::before{ 
-            background-color: red;
-        }
-
 
     </style>
     <div class="parent"></div>

@@ -2,9 +2,10 @@ import React from "react";
 
 interface OptionCityProps{
     name: string
+    setValue: (name:string) => void
 }
 
-export default function Option({name}: OptionCityProps){
+export default function Option({name, setValue}: OptionCityProps){
 
-    return <option>{name}</option>
+    return <div onClick={() => setValue(name)}>{name}</div>
 }
