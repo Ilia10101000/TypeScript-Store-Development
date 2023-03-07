@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Ilia10101000/fake_store/static/css/main.89b7f9b8.css",
+    "main.js": "/Ilia10101000/fake_store/static/js/main.b2fc540b.js",
+    "static/media/photo-768.jpg": "/Ilia10101000/fake_store/static/media/photo-768.ed6e2551fc960255bcf4.jpg",
+    "index.html": "/Ilia10101000/fake_store/index.html",
+    "main.89b7f9b8.css.map": "/Ilia10101000/fake_store/static/css/main.89b7f9b8.css.map",
+    "main.b2fc540b.js.map": "/Ilia10101000/fake_store/static/js/main.b2fc540b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.89b7f9b8.css",
+    "static/js/main.b2fc540b.js"
+  ]
+}
