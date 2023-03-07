@@ -4,11 +4,16 @@ import ConfirmButton from "./ConfirmButton";
 
 interface ShopAddressProps{
     city: string
+    total: string
 }
 
-const availableAddress = ['123','432','234']
+const availableAddress = [
+    'Ukrainian Victori str 24, Glory to Ukraine 8',
+    'Independenсe ave, Glory to the Heroes 1991',
+    'Death to the enemies PL, >150k'
+]
 
-export default function ShopsAddress({city}:ShopAddressProps){
+export default function ShopsAddress({city, total}:ShopAddressProps){
     const [address, setAddress] = React.useState('Choose address');
     const [isShow, setIsShow] = React.useState(false);
 
@@ -20,12 +25,12 @@ export default function ShopsAddress({city}:ShopAddressProps){
         setIsShow(false)
     }
     return (
-        <div>
+        <div className="final-confirm-wrapper">
             <div className="custom-select">
                 <div onClick={toogleVisiableOptions} className="selected-option">{address}</div>
                 <div style={{display: isShow?'block':'none'}} className="options">{availableAddress.map( (address, index) => <OptionCity key={index} setValue={setAddressName} name={address}/>)}</div> 
             </div>
-            {address && address !== 'Choose address'? <ConfirmButton city={city} address={address} type='pickup'/>: null}
+            {address && address !== 'Choose address' && !isShow? <ConfirmButton total={total} city={city} address={address} type='pickup'/>: null}
         </div>
     )
 }

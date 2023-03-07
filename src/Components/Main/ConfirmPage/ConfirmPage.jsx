@@ -1,19 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useLocation } from 'react-router-dom';
 import DeliveryPage from './DeliveryPage';
 import DeliveryPoints from './DeviveryPoints';
 import PickUp from './PickUp';
-import './confirm-list.css'
+import './confirm-page.css'
 
 
 
 export default function ConfirmPage(){
     
     const [typeDelivery, setTypeDelivery] = React.useState();
-
+    const location = useLocation()
+    console.log(location.state.total)
     let result;
 
-    if(typeDelivery === 'pickup') result = <PickUp/>;
-    if(typeDelivery === 'service') result = <DeliveryPage><DeliveryPoints/></DeliveryPage>;
+    if(typeDelivery === 'pickup') result = <PickUp total={location.state.total}/>;
+    if(typeDelivery === 'service') result = <DeliveryPage><DeliveryPoints total={location.state.total}/></DeliveryPage>;
     function chooseDelivery(e){
         setTypeDelivery(e.target.value)
     }

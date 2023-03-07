@@ -9,6 +9,7 @@ import ShoppingBasket from './Components/Main/ShoppingBasket/ShoppingBasket';
 import PageHasNotFound from './Components/PageHasNotFound';
 import ImageOfProduct from './Components/Main/Home/Product_List/ImageOfProduct';
 import ConfirmPage from './Components/Main/ConfirmPage/ConfirmPage.jsx';
+import FinalPage from './Components/Main/ConfirmPage/FinalPage';
 
 export const App:React.FC = () => {
 
@@ -22,6 +23,7 @@ export const App:React.FC = () => {
           <Route path='reviews' element={<Reviews/>}></Route>
           <Route path='img' element={<ImageOfProduct/>}></Route>
           <Route path='confirm' element={<ConfirmPage/>}></Route>
+          <Route path='final-page' element={<FinalPage/>}></Route>
           <Route path='*' element={<PageHasNotFound/>}></Route>
         </Route>
       </Routes>

@@ -6,7 +6,7 @@ import ConfirmButton from "./ConfirmButton";
 const key = 'd6109a921ad8b4db9eb42ea743a3d0c6';
 const url = 'https://api.novaposhta.ua/v2.0/json/';
 
-export default function DeliveryPoints(){
+export default function DeliveryPoints({total}){
 
     const [deliveryPoint, setDeliveryPoint] = React.useState('');
     const [pointsResultList, setPointsResultList] = React.useState([])
@@ -88,7 +88,7 @@ export default function DeliveryPoints(){
                 <label className="form-label">Delivery point</label>
             </div> 
                 <div style={!isShownDeliveryPointsList? {display:'none'}:null} className='pointsList'>{pointsResultList.map( point => <DropChoossenList key={point.SiteKey} description={point.Description} setDeliveryPoint={chooseDeliveryPoint}/>)}</div>
-                {selectDeliveruPoint.length? <ConfirmButton city={city} address={selectDeliveruPoint} type='delivery'/>:null}
+                {selectDeliveruPoint.length && !isShownDeliveryPointsList? <ConfirmButton total={total} city={city} address={selectDeliveruPoint} type='delivery'/>:null}
             </>
     )
 }

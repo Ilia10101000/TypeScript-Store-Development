@@ -1,8 +1,6 @@
 .confirm-page{
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
-    /* align-items: center; */
 }
 .deliveryType-container > *{
     margin-bottom: 20px;
@@ -23,15 +21,15 @@
     position: relative;
 }
 .custom-radio-checkbox:hover{
-    border: 1px solid red;
+    border: 1px solid #ff0000;
 }
 input[type=radio]:checked + .custom-radio-checkbox{
-    border: 1px solid red;
+    border: 1px solid #ff0000;
 }
 input[type=radio]:checked + .custom-radio-checkbox:before{
     content: '';
     position: absolute;
-    background-color: red;
+    background-color: #ff0000;
     border-radius: 50%;
     width: 10px;
     height: 10px;
@@ -62,11 +60,11 @@ input[type=radio]:checked + .custom-radio-checkbox:before{
     display: inline-block;
     width: 10px;
     height:10px;
-    background: linear-gradient( to left top, red 0%, red 50%, white 50%, white 100%);
+    background: linear-gradient( to left top, #ff0000 0%, #ff0000 50%, white 50%, white 100%);
     transform: rotate(45deg);
 }
 .selected-option:hover{
-    border-bottom: 1px solid red;
+    border-bottom: 1px solid #ff0000;
 }
 .custom-select .options{
     box-shadow: 1px 1px 10px #8c8c8c;
@@ -106,7 +104,7 @@ input[type=radio]:checked + .custom-radio-checkbox:before{
     transition: 0.3s;
 }
 .form-input:focus{
-    border-bottom: 1px solid red;
+    border-bottom: 1px solid #ff0000;
 }
 .form-input:focus ~ .form-label, .form-input:not(:placeholder-shown) ~ .form-label{
     top:-10px;
@@ -138,12 +136,15 @@ input[type=radio]:checked + .custom-radio-checkbox:before{
 input[type=radio]{
     display: none;
 }
-
-
-
-
+.final-page-container div {
+    margin-bottom: 15px;
+    font-family: sans-serif;
+}
 @media screen and (max-width: 575px){
     .cityesList, .pointsList{
+        width: 100%;
+    }
+    .final-page-container{
         width: 100%;
     }
 }

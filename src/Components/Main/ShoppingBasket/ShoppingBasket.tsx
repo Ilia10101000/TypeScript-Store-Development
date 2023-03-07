@@ -19,7 +19,7 @@ export default function ShoppingBasket(){
         const total = shopBasketData.reduce((acc, product) => acc + (product.price * product.count),0).toFixed(2)
 
         const confirmOrder = () => {
-            navigate('/confirm', {state:{total,shopBasketData}})
+            navigate('/confirm', {state:{total}})
         }
 
         return (

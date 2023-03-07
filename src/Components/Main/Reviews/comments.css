@@ -1,0 +1,20 @@
+.comments-container{
+    border: 1px solid #c8c8c8;
+    border-radius: 7px;
+}
+.comments-container .comment-item:not(:last-child){
+    border-bottom: 1px solid #c8c8c8;
+}
+.comment-item{
+    padding: 5px;
+    position: relative;
+}
+.comment-item div{
+    margin-bottom: 5px;
+}
+.comment-number{
+    position: absolute;
+    color:#c8c8c8;
+    top: 2px;
+    right:5px
+}

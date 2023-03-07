@@ -6,19 +6,20 @@ interface ConfirmButton{
     city: string
     address: string
     type: string
+    total: string
 }
-export default function ConfirmButton({city, address, type}: ConfirmButton){
+export default function ConfirmButton({city, address, type, total}: ConfirmButton){
 
     const navigate = useNavigate()
 
     if(city && address && type){
 
         const makeOrder = () => {
-            navigate('/finish-page',{state:{city,address,type}})
+            navigate('/final-page',{state:{city,address,type,total}, replace:true})
         }
 
         return (
-            <button onClick={makeOrder} className="confirm-button">Make order</button>
+            <div><button onClick={makeOrder} className="confirm-button">Make order</button></div>
         )
     } else {
         return null
